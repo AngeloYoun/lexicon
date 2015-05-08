@@ -133,6 +133,23 @@
 	}
 }
 
+.toolbar-group, .toolbar-group-right {
+	a {
+		color: $navbar-default-link-color;
+		display: block;
+		padding: 6px;
+
+		&:focus, &:hover {
+			color: $navbar-default-link-active-color;
+			text-decoration: none;
+		}
+	}
+
+	.active > a {
+		color: $navbar-default-link-hover-color;
+	}
+}
+
 // Toolbar Group Newlines
 
 @media screen and (max-width: 767px) {
@@ -267,16 +284,12 @@
 		height: $management-toolbar-height;
 
 		a, .btn, .btn-primary {
-			color: $toolbar-default-link-color;
-			display: block;
-
 			&:hover {
 				color: $toolbar-default-link-hover-color;
-				text-decoration: none;
 			}
 		}
 
-		.active.btn {
+		.active.btn, .active > a  {
 			background: $btn-default-active-bg;
 		}
 	}
