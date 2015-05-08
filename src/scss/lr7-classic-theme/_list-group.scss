@@ -66,7 +66,7 @@
 
 		&:first-child {
 			.list-group-item-content, .list-group-item-field {
-				border-top: 1px solid #DDD;
+				border-top: 1px solid $list-group-border;
 			}
 		}
 	}
@@ -80,7 +80,7 @@
 	}
 
 	.list-group-item-content, .list-group-item-field {
-		border: 1px solid #DDD;
+		border: 1px solid $list-group-border;
 		border-top-width: 0;
 		border-left-width: 0;
 		border-right-width: 0;
