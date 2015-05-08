@@ -135,18 +135,18 @@
 
 .toolbar-group, .toolbar-group-right {
 	a {
-		color: $navbar-default-link-color;
+		color: $toolbar-default-link-color;
 		display: block;
 		padding: 6px;
 
 		&:focus, &:hover {
-			color: $navbar-default-link-active-color;
+			color: $toolbar-default-link-active-color;
 			text-decoration: none;
 		}
 	}
 
 	.active > a {
-		color: $navbar-default-link-hover-color;
+		color: $toolbar-default-link-hover-color;
 	}
 }
 
@@ -227,6 +227,7 @@
 	padding: 5px;
 
 	.toolbar-group-content, .toolbar-group-expand, .toolbar-group-field {
+		height: $header-toolbar-height;
 		padding: 0 2px;
 	}
 
@@ -239,7 +240,7 @@
 	}
 
 	.toolbar-group-expand-text {
-		line-height: 38px;
+		line-height: $header-toolbar-height;
 		padding: 0 2px;
 	}
 }
@@ -258,14 +259,13 @@
 	}
 
 	.toolbar-group-expand-text {
-		line-height: 38px;
+		line-height: $header-toolbar-height;
 	}
 }
 
 // Management Toolbar Skin
 
 .management-toolbar-default {
-	background: $toolbar-default-bg;
 	border-bottom: 1px solid $toolbar-bottom-border;
 	height: $management-toolbar-height;
 	padding: 0 24px;

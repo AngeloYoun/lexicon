@@ -19,4 +19,6 @@ $toolbar-content-height: (($toolbar-group-default-padding * 2) + ($line-height-b
 //** Align dropdown with bottom of toolbar
 $toolbar-dropdown-margin-top: ceil($toolbar-height - $toolbar-content-height) / 2;
 
+$header-toolbar-height: 64px;
+
 $management-toolbar-height: 56px;
