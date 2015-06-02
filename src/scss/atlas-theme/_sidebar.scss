@@ -1,6 +1,5 @@
 .sidebar {
 	-webkit-overflow-scrolling: touch;
-	height: 100%;
 	overflow: auto;
 
 	&.slideout-drawer-transition {
@@ -49,4 +48,34 @@
 .sidebar-default {
 	background-color: #F5F8FA;
 	border-left: 1px solid #DFE0E3;
+	height: 100%;
+	min-height: 781px;
+	overflow: hidden;
+}
+
+/* Adds scrim to sidebar */
+
+.sidebar-scrim:before {
+	background-color: rgba(0,0,0,0.3);
+	bottom: 0;
+	content: "";
+	display: block;
+	left: 0;
+	position: fixed;
+	right: 0;
+	top: 0;
+	z-index: 1500;
+	transition: opacity ease-in-out 0.38s, visibility ease-in-out 0.38s;
+}
+
+.closed.sidebar-scrim:before {
+	visibility: hidden;
+	opacity: 0;
+}
+
+@media (min-width: $grid-float-breakpoint) {
+	.sidebar-scrim:before {
+		visibility: hidden;
+		opacity: 0;
+	}
 }
