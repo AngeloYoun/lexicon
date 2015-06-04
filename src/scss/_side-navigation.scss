@@ -1,4 +1,4 @@
-$sideNavWidth: 235px;
+$sideNavWidth: 255px;
 $sideNavBoxShadow: 3px 0 5px -4px #444;
 
 #mainContent {
@@ -48,14 +48,18 @@ $sideNavBoxShadow: 3px 0 5px -4px #444;
 		}
 	}
 
-	.nav-stacked li {
-		> h4 {
-			color: #F3F3F3;
-			padding: 10px 15px;
-		}
+	.nav-stacked {
+		margin-bottom: 25px;
 
-		div > .nav-stacked li > a {
-			padding-left: 35px;
+		> li {
+			> h4 {
+				color: #F3F3F3;
+				padding: 10px 15px;
+			}
+
+			div > .nav-stacked li > a {
+				padding-left: 35px;
+			}
 		}
 	}
 }
@@ -152,7 +156,7 @@ $sideNavBoxShadow: 3px 0 5px -4px #444;
 		> .sidenav-container {
 			> .sidenav-menu-slider {
 				transform: translateX(0);
-				width: 235px;
+				width: 255px;
 			}
 
 			> .sidenav-content {
