@@ -14,28 +14,19 @@
 
 						if (item.children) {
 							cssClass = 'side-navigation-dropdown-container panel'; //Bootstrap 3 data-parent accordian has dom structure dependency (parent > panel > collapse)
-							dropDownAttr = 'data-toggle="collapse" data-parent="#sideNav0"';
+							dropDownAttr = '';
 							url = '#subNav' + subNavCount;
 						}
 
 						var tplObj = {
 							cssClass: cssClass,
-							dropDownAttr: dropDownAttr,
 							title: item.title,
 							url: url
 						};
 
-						buffer.push(Y.Lang.sub('<li class="{cssClass}"><a class="nav-item-container" href="{url}" {dropDownAttr}><span>{title}</span>', tplObj));
+						buffer.push(Y.Lang.sub('<li class="{cssClass}"><a class="nav-item-container ', tplObj));
 
 						if (item.children) {
-							var sectionNav = createMainNavList(item.children, path, item);
-
-							buffer.push('<span class="side-navigation-dropdown"><span class="caret"></span></span></a>');
-
-							var collapseCssClass = 'collapse';
-
-							var collapseId = 'subNav' + subNavCount;
-
 							var hasActiveChild = Y.Array.some(
 								item.children,
 								function(item, index) {
@@ -43,9 +34,21 @@
 								}
 							);
 
+							var collapsedCssClass = 'collapsed';
+							var collapseCssClass = 'collapse';
+
 							if (hasActiveChild) {
+								collapsedCssClass = '';
 								collapseCssClass += ' in';
 							}
+
+							var sectionNav = createMainNavList(item.children, path, item);
+
+							buffer.push(Y.Lang.sub(collapsedCssClass + '" data-parent="#sideNav0" data-toggle="collapse" href="{url}"><span>{title}</span>', tplObj));
+
+							buffer.push('<span class="side-navigation-dropdown"><span class="caret"></span></span></a>');
+
+							var collapseId = 'subNav' + subNavCount;
 
 							buffer.push('<div class="' + collapseCssClass + '" id="' + collapseId + '">');
 
@@ -57,7 +60,7 @@
 						}
 
 						else {
-							buffer.push('</a>');
+							buffer.push(Y.Lang.sub('" href="{url}"><span>{title}</span></a>', tplObj));
 						}
 
 						buffer.push('</li>');

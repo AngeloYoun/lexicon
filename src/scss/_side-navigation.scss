@@ -1,4 +1,4 @@
-$sideNavWidth: 255px;
+$sideNavWidth: 240px;
 $sideNavBoxShadow: 3px 0 5px -4px #444;
 
 #mainContent {
@@ -24,7 +24,6 @@ $sideNavBoxShadow: 3px 0 5px -4px #444;
 }
 
 .side-navigation {
-	box-shadow: $sideNavBoxShadow;
 	background-color: #FFF;
 	height: 100%;
 	left: 0;
@@ -32,6 +31,10 @@ $sideNavBoxShadow: 3px 0 5px -4px #444;
 	padding-top: 35px;
 	width: $sideNavWidth;
 	z-index: 2000;
+
+	.sidenav-menu {
+		width: calc(#{$sideNavWidth} - 15px); // So scrollbar doesn't shift nav
+	}
 
 	li {
 		> a {
@@ -74,15 +77,19 @@ $sideNavBoxShadow: 3px 0 5px -4px #444;
 		visibility: hidden;
 	}
 
-	> a {
-		float: right;
-		text-align: center;
-		width: 25%;
+	.nav-item-container {
+		@include clearfix;
 
-		&:first-child {
-			float: left;
-			text-align: left;
-			width: 75%;
+		> span {
+			float: right;
+			text-align: center;
+			width: 25%;
+
+			&:first-child {
+				float: left;
+				text-align: left;
+				width: 75%;
+			}
 		}
 	}
 
@@ -156,17 +163,15 @@ $sideNavBoxShadow: 3px 0 5px -4px #444;
 		> .sidenav-container {
 			> .sidenav-menu-slider {
 				transform: translateX(0);
-				width: 255px;
+				width: $sideNavWidth;
 			}
 
 			> .sidenav-content {
-				padding-left: $sideNavWidth + 35;
+				padding: 0 40px 0 $sideNavWidth + 40px;
 			}
 		}
 	}
-}
 
-@media (min-width: $screen-sm-min) {
 	#headerTopBar .title {
 		padding-left: 15px;
 	}
@@ -178,7 +183,7 @@ $sideNavBoxShadow: 3px 0 5px -4px #444;
 	}
 
 	.main-nav-closed .side-navigation-container {
-		width: $sideNavWidth;
+		width: 100%;
 	}
 
 	.menu-toggle {
