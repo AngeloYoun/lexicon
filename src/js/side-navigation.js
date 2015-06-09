@@ -159,12 +159,12 @@
 			element.each(function(index, node) {
 				var node = $(node);
 
-				if (node.hasClass('closed') && node.hasClass('sidenav-right')) {
-					node.find('.sidenav-menu').css({
-						right: instance.options.width,
-						width: instance.options.width
-					});
-				}
+				// if (node.hasClass('closed') && node.hasClass('sidenav-right')) {
+				// 	node.find('.sidenav-menu').css({
+				// 		right: instance.options.width,
+				// 		width: instance.options.width
+				// 	});
+				// }
 
 				if (!node.hasClass('closed')) {
 					instance.setEqualHeight(node);
@@ -370,18 +370,10 @@
 				setTimeout(function() {
 					container.removeClass('closed').addClass('sidenav-transition');
 
-					if (window.innerWidth > instance.options.breakpoint - 1) {
-						sidenavMenu.css('right', '');
-					}
-
 					instance.setWidth(container);
 				}, 0);
 			}
 			else {
-				if ((window.innerWidth > instance.options.breakpoint - 1) && (container.hasClass('sidenav-right'))) {
-					sidenavMenu.css('right', instance.options.width);
-				}
-
 				container.addClass('closed').addClass('sidenav-transition');
 
 				instance.removeWidth(container);
