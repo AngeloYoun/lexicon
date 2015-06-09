@@ -1,33 +1,40 @@
 <nav class="side-navigation sidenav-menu-slider" id="mainNav">
 	<div class="side-navigation-container sidenav-menu">
 			<%
+			var subNavCount = 0;
+
 			var createMainNavList = function(nav, path, parent) {
-				var buffer = ['<ul class="nav nav-stacked">'];
+				var buffer = ['<ul class="nav nav-stacked" id="sideNav' + subNavCount + '">'];
 
 				nav.forEach(
 					function(item, index) {
 						var cssClass = ((path == item.path) ? 'active' : '');
+						var dropDownAttr = '';
 						var url = rootPath + '/' + item.path;
 
 						if (item.children) {
-							url = 'javascript:;'
-							cssClass = 'side-navigation-dropdown-container';
+							cssClass = 'side-navigation-dropdown-container panel'; //Bootstrap 3 data-parent accordian has dom structure dependency (parent > panel > collapse)
+							dropDownAttr = 'data-toggle="collapse" data-parent="#sideNav0"';
+							url = '#subNav' + subNavCount;
 						}
 
 						var tplObj = {
 							cssClass: cssClass,
+							dropDownAttr: dropDownAttr,
 							title: item.title,
 							url: url
 						};
 
-						buffer.push(Y.Lang.sub('<li class="{cssClass}"><a href="{url}">{title}</a>', tplObj));
+						buffer.push(Y.Lang.sub('<li class="{cssClass}"><a class="nav-item-container" href="{url}" {dropDownAttr}><span>{title}</span>', tplObj));
 
 						if (item.children) {
 							var sectionNav = createMainNavList(item.children, path, item);
 
-							buffer.push('<a class="side-navigation-dropdown" href="#"><span class="caret"></span></a>');
+							buffer.push('<span class="side-navigation-dropdown"><span class="caret"></span></span></a>');
 
 							var collapseCssClass = 'collapse';
+
+							var collapseId = 'subNav' + subNavCount;
 
 							var hasActiveChild = Y.Array.some(
 								item.children,
@@ -40,11 +47,17 @@
 								collapseCssClass += ' in';
 							}
 
-							buffer.push('<div class="', collapseCssClass,'">');
+							buffer.push('<div class="' + collapseCssClass + '" id="' + collapseId + '">');
 
 							buffer.push(sectionNav);
 
 							buffer.push('</div>');
+
+							subNavCount++;
+						}
+
+						else {
+							buffer.push('</a>');
 						}
 
 						buffer.push('</li>');

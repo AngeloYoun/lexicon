@@ -30,19 +30,6 @@
 						ct.ancestor('#wrapper').toggleClass('main-nav-open');
 					}
 				);
-
-				A.all('.side-navigation').each(
-					function(item, index) {
-						item.delegate(
-							'click',
-							function(event) {
-								event.preventDefault();
-								event.currentTarget.next('.collapse').toggleClass('in');
-							},
-							'li.side-navigation-dropdown-container > a'
-						);
-					}
-				);
 			}
 		);
 
