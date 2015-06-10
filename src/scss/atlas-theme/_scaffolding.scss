@@ -1,3 +1,7 @@
+body {
+	color: $brand-default; // Reset font-color for classic
+}
+
 @media screen and (min-width: $grid-float-breakpoint) {
 	body {
 		font-size: $font-size-base-desktop;
