@@ -44,16 +44,16 @@
 
 		_onClickTrigger: function(element) {
 			var instance = this;
-			var toggler = element.find(instance.options.toggler); // find toggler inside element
+			// var toggler = element.find(instance.options.toggler); // find toggler inside element
 
 			var body;
 			var container;
 
-			if (!toggler.length) { // if toggler doesnt exist, toggler and element are separate
+			// if (!toggler.length) { // if toggler doesnt exist, toggler and element are separate
 				body = element.closest('body');
 				toggler = body.find(instance.options.toggler);
 				container = body.find(instance.options.selector);
-			}
+			// }
 
 			toggler.on('click', function(event) {
 				var $this = $(this);
@@ -204,9 +204,9 @@
 		},
 
 		removeEqualHeight: function(array) {
-			$.each(array, function(index, node) {
-				node.css('min-height', '');
-			});
+			// $.each(array, function(index, node) {
+			// 	node.css('min-height', '');
+			// });
 		},
 
 		removeWidth: function(element) {
@@ -267,17 +267,17 @@
 					}
 				}
 
-				containerClone.insertBefore(node);
+				// containerClone.insertBefore(node);
 
-				element1 = containerCloneNavigation;
-				element2 = containerCloneContent;
-				tallest = Math.max(element1.outerHeight(), element2.outerHeight());
+				// element1 = containerCloneNavigation;
+				// element2 = containerCloneContent;
+				// tallest = Math.max(element1.outerHeight(), element2.outerHeight());
 
-				containerClone.remove();
+				// containerClone.remove();
 
-				node.find(instance.options.content).css('min-height', tallest);
-				node.find(instance.options.navigation).css('min-height', tallest);
-				node.find('.sidenav-menu').css('min-height', tallest);
+				// node.find(instance.options.content).css('min-height', tallest);
+				// node.find(instance.options.navigation).css('min-height', tallest);
+				// node.find('.sidenav-menu').css('min-height', tallest);
 			});
 		},
 
