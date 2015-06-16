@@ -216,7 +216,7 @@
 			if (element.hasClass('sidenav-right')) {
 				if (window.innerWidth < instance.options.breakpoint) {
 					content.css('left', '');
-					element.find('.sidenav-menu').css('right', instance.options.width);
+					// element.find('.sidenav-menu').css('right', instance.options.width);
 				}
 				else {
 					content.css('padding-right', '');
