@@ -31,7 +31,13 @@ $brand-danger: #CC6677 !default;
 $brand-danger-active: darken($brand-danger, 12%) !default;
 $brand-danger-hover: darken($brand-danger, 8%) !default;
 
-$text-color:                               #29353D !default;
+$brand-anchor: #29353D !default;
+$brand-dark: darken($brand-default, 32) !default;
+$brand-light: lighten($brand-default, 32) !default;
+
+$headings-font-weight: 200 !default;
+
+$text-color:                               $brand-default !default;
 $text-muted:                               lighten($text-color, 55%) !default;
 
 //** Global background color for active items (e.g., navs or dropdowns).
