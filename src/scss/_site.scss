@@ -38,6 +38,10 @@ section.row {
 
 #headerTopBar {
 	background: #0058BA url(../images/back_decoration_nav.png) no-repeat 100% 0;
+	left: 0;
+	position: absolute;
+	right: 0;
+	z-index: 2000;
 
 	a {
 		color: #FFF;
