@@ -95,7 +95,6 @@ section.row {
 	.active > a, .active:hover > a {
 		border-left: 2px solid #35ABFF;
 		font-weight: 400;
-		padding-left: 33px;
 	}
 
 	.caret {
@@ -107,9 +106,13 @@ section.row {
 		transform: rotate(-90deg);
 	}
 
-	.side-navigation-dropdown-container > .nav-item-container:not(.collapsed) {
-		border-left: 2px solid #B0BEC9;
-		padding-left: 14px;
+	.side-navigation-dropdown-container {
+		border-width: 0;
+
+		> .nav-item-container:not(.collapsed) {
+			border-left: 2px solid #B0BEC9;
+			padding-left: 14px;
+		}
 	}
 
 	li {
