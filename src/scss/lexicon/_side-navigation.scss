@@ -85,8 +85,6 @@
 	.sidenav-content {
 		@include clearfix-hack();
 
-		left: auto;
-		padding-left: $sidenav-width;
 		position: static;
 	}
 }
